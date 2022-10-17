@@ -1,9 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using User_RestService.Controllers;
 using User_RestService.Models;
 using User_RestService.Services;
@@ -45,14 +40,14 @@ namespace UserList.Test
             Assert.IsType<OkObjectResult>(okResponse as OkObjectResult);
         }
 
-    [Fact]
-    public void GetNames_GetStringWithNames_ReturnsOkResponse()
-    {
-         //Act 
-         var okResponse = _controller.GetNames(_users) as OkObjectResult;
+        [Fact]
+        public void GetNames_GetStringWithNames_ReturnsOkResponse()
+        {
+            //Act 
+            var okResponse = _controller.GetNames(_users) as OkObjectResult;
 
-        //Assert
-        Assert.Equal("John, Lily, Conny", okResponse.Value);
+            //Assert
+            Assert.Equal("John, Lily, Conny", okResponse.Value);
+        }
     }
-}
 }

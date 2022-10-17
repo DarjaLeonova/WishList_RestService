@@ -9,5 +9,6 @@ namespace WishList_RestService.Validation
         public bool AlreadyExist(Wish wish);
 
         public bool HasEmptyValue(Wish wish);  
+
     }
 }

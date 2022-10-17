@@ -40,10 +40,10 @@ namespace WishList_RestService.Controllers
         [HttpPost]
         public IActionResult AddWish(Wish wish)
         {
-            if(!ModelState.IsValid 
+            if (!ModelState.IsValid
                 || _validator.AlreadyExist(wish))
             {
-                return BadRequest(ModelState);  
+                return BadRequest(ModelState);
             }
             return Created("", _service.AddWish(wish));
         }
@@ -55,7 +55,7 @@ namespace WishList_RestService.Controllers
             if(_validator.HasEmptyValue(wish) 
                 || _validator.IsInvalidId(id))
             {
-                return BadRequest();
+                return BadRequest("Object values are emty or incorrect Id.");
             }
             return Ok(_service.UpdateWish(wish, id));
         }
@@ -66,7 +66,7 @@ namespace WishList_RestService.Controllers
         {
             if (_validator.IsInvalidId(id))
             {
-                return BadRequest();
+                return BadRequest("This Id does not exist.");
             }
             return Ok(_service.DeleteWishById(id));
         }

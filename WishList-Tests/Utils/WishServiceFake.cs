@@ -10,11 +10,11 @@ namespace WishList_Tests.Utils
         {
             _wishList = new List<Wish>()
             {
-                new Wish() {Id = 1, Name = "Cookie", Description = "Buy Cookies"},
-                new Wish() {Id = 2, Name = "Candy", Description = "Eat candies"},
-                new Wish() {Id = 3, Name = "Pizza", Description = "Make pizza"},
-                new Wish() {Id = 4, Name = "Pasta Carbonara", Description = "Fly to Italy and eat carbonara"},
-                new Wish() {Id = 5, Name = "Dog", Description = "Pet Stormy"}
+                new Wish() {Id = 1, WishId = 1, Name = "Cookie", Description = "Buy Cookies"},
+                new Wish() {Id = 2, WishId = 2, Name = "Candy", Description = "Eat candies"},
+                new Wish() {Id = 3, WishId = 3, Name = "Pizza", Description = "Make pizza"},
+                new Wish() {Id = 4, WishId = 4, Name = "Pasta Carbonara", Description = "Fly to Italy and eat carbonara"},
+                new Wish() {Id = 5, WishId = 5, Name = "Dog", Description = "Pet Stormy"}
             };
         }
         public Wish AddWish(Wish wish)

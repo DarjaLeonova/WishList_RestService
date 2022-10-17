@@ -26,7 +26,8 @@ namespace WishList_RestService.Validation.Impl
 
             foreach(var item in list)
             {
-                if(item.Name == wish.Name)
+                if(item.Name == wish.Name 
+                    || item.WishId == wish.WishId)
                 {
                     return true;
                 }
@@ -44,6 +45,13 @@ namespace WishList_RestService.Validation.Impl
             return false;
         }
 
-        
+        /*public bool IsInvalidWishId(int id)
+        {
+            if(_service.GetWishById(id) != null)
+            {
+                return true;
+            }
+            return false;
+        }*/
     }
 }

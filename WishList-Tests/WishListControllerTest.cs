@@ -214,7 +214,7 @@ namespace WishList_Tests
             var badResponse = _controller.UpdateWish(updateWish, id);
 
             // Assert
-            Assert.IsType<BadRequestResult>(badResponse);
+            Assert.IsType<BadRequestObjectResult>(badResponse);
         }
 
         [Fact]
@@ -232,7 +232,7 @@ namespace WishList_Tests
             var badResponse = _controller.UpdateWish(updateWish, id);
 
             // Assert
-            Assert.IsType<BadRequestResult>(badResponse);
+            Assert.IsType<BadRequestObjectResult>(badResponse);
         }
 
         [Fact]
@@ -245,7 +245,7 @@ namespace WishList_Tests
             var badResponse = _controller.DeleteWish(id);
 
             //Assert
-            Assert.IsType<BadRequestResult>(badResponse);
+            Assert.IsType<BadRequestObjectResult>(badResponse);
         }
 
         [Fact]
