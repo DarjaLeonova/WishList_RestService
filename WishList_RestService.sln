@@ -5,7 +5,7 @@ VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WishList_RestService", "WishList_RestService\WishList_RestService.csproj", "{9295CA13-D4BF-4960-827C-083F9530880D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WishList-Tests", "WishList-Tests\WishList-Tests.csproj", "{27747F0D-A442-4107-89C0-F37C9B813885}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WishList-Tests", "WishList-Tests\WishList-Tests.csproj", "{27747F0D-A442-4107-89C0-F37C9B813885}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
