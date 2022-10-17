@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using User_RestService.Services;
+using User_RestService.Services.Impl;
 using WishList_RestService.Data;
 using WishList_RestService.Services;
 using WishList_RestService.Services.Impl;
@@ -15,6 +17,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IWishService, WishService>();
 builder.Services.AddScoped<IWishValidator, WishValidator>();
+builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
                     builder.Configuration.GetConnectionString("DefaultConnection")
                 ));
