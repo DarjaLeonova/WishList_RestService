@@ -20,6 +20,7 @@ namespace WishList_Tests
             _validator = new WishValidator(_service);
             _controller = new WishListController(_service, _validator);
         }
+
         [Fact]
         public void GetWishes_WhenCalled_ReturnOkResponse()
         {
@@ -44,7 +45,7 @@ namespace WishList_Tests
         [Fact]
         public void GetWishById_ExistingIdPassed_ReturnRightWish()
         {
-            //aarange
+            //Arrange
             int id = 1; 
 
             //Act
@@ -84,61 +85,61 @@ namespace WishList_Tests
         [Fact]
         public void AddWish_InvalidObjectPassed_ReturnsBadRequest()
         {
-            // Arrange
+            //Arrange
             var nameMissingItem = new Wish()
             {   
                 Description = "dsada"
             };
             _controller.ModelState.AddModelError("Name", "Required");
 
-            // Act
+            //Act
             var badResponse = _controller.AddWish(nameMissingItem);
 
-            // Assert
+            //Assert
             Assert.IsType<BadRequestObjectResult>(badResponse);
         }
 
         [Fact]
         public void AddWish_ValidObjectPassed_ReturnsCreatedRequest()
         {
-            // Arrange
+            //Arrange
             var requestBody = new Wish()
             {
                 Name = "Test",
                 Description = "dsada"
             };
 
-            // Act
+            //Act
             var createdResponse = _controller.AddWish(requestBody);
 
-            // Assert
+            //Assert
             Assert.IsType<CreatedResult>(createdResponse);
         }
 
         [Fact]
         public void AddWish_ValidObjectPassed_ReturnsAlreadyCreatedWish()
         {
-            // Arrange
+            //Arrange
             var requestBody = new Wish() { Id = 1, Name = "Cookie", Description = "Buy Cookies" };
 
-            // Act
+            //Act
             var responseBody = _controller.AddWish(requestBody);
 
-            // Assert
+            //Assert
             Assert.IsType<BadRequestObjectResult>(responseBody);
         }
 
         [Fact]
         public void AddWish_ValidObjectPassed_ReturnsWishLisCount()
         {
-            // Arrange
+            //Arrange
             var requestBody = new Wish() {Name = "Game", Description = "Play LOL" };
 
-            // Act
+            //Act
             _controller.AddWish(requestBody);
             var wishCount = _controller.GetWishes() as OkObjectResult;
 
-            // Assert
+            //Assert
             var items = Assert.IsType<List<Wish>>(wishCount.Value);
             Assert.Equal(6, items.Count);
         }
@@ -146,17 +147,17 @@ namespace WishList_Tests
         [Fact]
         public void UpdateWishDescription_ValidObjectPassed_ReturnsOkResponse()
         {
-            // Arrange
+            //Arrange
             int id = 1;
             var updateWish = new Wish()
             {
                 Description = "Test"
             };
 
-            // Act
+            //Act
             var updatedResponse = _controller.UpdateWish(updateWish, id);
 
-            // Assert
+            //Assert
             Assert.IsType<OkObjectResult>(updatedResponse);
             Assert.Equal(_service.GetWishById(1).Description, updateWish.Description);
         }
@@ -164,17 +165,17 @@ namespace WishList_Tests
         [Fact]
         public void UpdateWishName_ValidObjectPassed_ReturnsOkResponse()
         {
-            // Arrange
+            //Arrange
             int id = 1;
             var updateWish = new Wish()
             {
                 Name = "Test"
             };
 
-            // Act
+            //Act
             var updatedResponse = _controller.UpdateWish(updateWish, id);
 
-            // Assert
+            //Assert
             Assert.IsType<OkObjectResult>(updatedResponse);
             Assert.Equal(_service.GetWishById(1).Name, updateWish.Name);
         }
@@ -182,7 +183,7 @@ namespace WishList_Tests
         [Fact]
         public void UpdateFullWish_ValidObjectPassed_ReturnsAlreadyCreatedWish()
         {
-            // Arrange
+            //Arrange
             int id = 1;
             var updateWish = new Wish()
             {
@@ -190,10 +191,10 @@ namespace WishList_Tests
                 Description = "Test"
             };
 
-            // Act
+            //Act
             var updatedResponse = _controller.UpdateWish(updateWish, id);
 
-            // Assert
+            //Assert
             Assert.IsType<OkObjectResult>(updatedResponse);
             Assert.Equal(_service.GetWishById(1).Name, updateWish.Name);
             Assert.Equal(_service.GetWishById(1).Description, updateWish.Description);
@@ -202,7 +203,7 @@ namespace WishList_Tests
         [Fact]
         public void UpdateWish_InvalidObjectPassed_ReturnsBadRequest()
         {
-            // Arrange
+            //Arrange
             int id = 1;
             var updateWish = new Wish()
             {
@@ -210,17 +211,17 @@ namespace WishList_Tests
                 Description = ""
             };
 
-            // Act
+            //Act
             var badResponse = _controller.UpdateWish(updateWish, id);
 
-            // Assert
+            //Assert
             Assert.IsType<BadRequestObjectResult>(badResponse);
         }
 
         [Fact]
         public void UpdateWish_NotExistingIdPassed_ReturnsBadRequest()
         {
-            // Arrange
+            //Arrange
             int id = 10;
             var updateWish = new Wish()
             {
@@ -228,10 +229,10 @@ namespace WishList_Tests
                 Description = "Test"
             };
 
-            // Act
+            //Act
             var badResponse = _controller.UpdateWish(updateWish, id);
 
-            // Assert
+            //Assert
             Assert.IsType<BadRequestObjectResult>(badResponse);
         }
 

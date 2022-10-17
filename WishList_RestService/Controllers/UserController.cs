@@ -9,6 +9,7 @@ namespace User_RestService.Controllers
     public class UserController : Controller
     {
         private IUserService _service;
+
         public UserController(IUserService service)
         {
             _service = service;

@@ -19,20 +19,24 @@ namespace WishList_Tests.Utils
         }
         public Wish AddWish(Wish wish)
         {
-             _wishList.Add(wish);
+            _wishList.Add(wish);
+
             return wish;
         }
 
         public string DeleteAllWishes()
         {
             _wishList.Clear();
+
             return "All wishes deleted";
         }
 
         public Wish DeleteWishById(int id)
         {
             var wish = GetWishById(id);
+
             _wishList.Remove(wish);
+
             return wish;
         }
 
@@ -49,8 +53,10 @@ namespace WishList_Tests.Utils
         public Wish UpdateWish(Wish wish, int id)
         {
             var updatedWish = GetWishById(id);
+
             updatedWish.Name = wish.Name;
             updatedWish.Description = wish.Description;
+
             return updatedWish;  
         }
     }

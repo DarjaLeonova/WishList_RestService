@@ -44,14 +44,5 @@ namespace WishList_RestService.Validation.Impl
             }
             return false;
         }
-
-        /*public bool IsInvalidWishId(int id)
-        {
-            if(_service.GetWishById(id) != null)
-            {
-                return true;
-            }
-            return false;
-        }*/
     }
 }

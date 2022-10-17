@@ -9,6 +9,7 @@ namespace UserList.Test
         private readonly List<User> _userList;
         private readonly Users _users;
         private readonly IUserService _userService;
+
         public UserServiceTest()
         {
             _userList = new List<User>()
@@ -17,12 +18,10 @@ namespace UserList.Test
                 new User() {Type = "user", Id = 2, Name = "Lily", Email = "lilyjey@gmail.com"},
                 new User() {Type = "user", Id = 3, Name = "Conny", Email = "connyjey@gmail.com"}
             };
-
             _users = new Users()
             {
                 UsersList = _userList
             };
-
             _userService = new UserService();
         }
 
