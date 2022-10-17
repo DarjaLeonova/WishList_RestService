@@ -1,12 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using WishList_RestService.Data;
+﻿using WishList_RestService.Data;
 using WishList_RestService.Models;
 
 namespace WishList_RestService.Services.Impl
 {
     public class WishService : IWishService
     {
-        
+
         private readonly ApplicationDbContext _db;
         public WishService(ApplicationDbContext db)
         {
@@ -14,8 +13,8 @@ namespace WishList_RestService.Services.Impl
         }
         public Wish AddWish(Wish wish)
         {
-           _db.WishList.Add(wish);
-           _db.SaveChanges();
+            _db.WishList.Add(wish);
+            _db.SaveChanges();
             return wish;
         }
 
@@ -36,7 +35,7 @@ namespace WishList_RestService.Services.Impl
 
         public Wish GetWishById(int id)
         {
-            
+
             var wish = _db.WishList.Where(a => a.WishId == id).FirstOrDefault();
             return wish;
         }
