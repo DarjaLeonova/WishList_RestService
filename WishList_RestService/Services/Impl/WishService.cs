@@ -36,7 +36,8 @@ namespace WishList_RestService.Services.Impl
 
         public Wish GetWishById(int id)
         {
-            var wish = _db.WishList.Where(a => a.Id == id).FirstOrDefault();
+            
+            var wish = _db.WishList.Where(a => a.WishId == id).FirstOrDefault();
             return wish;
         }
 

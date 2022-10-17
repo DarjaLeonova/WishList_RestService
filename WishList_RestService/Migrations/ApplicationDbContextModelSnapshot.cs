@@ -37,6 +37,9 @@ namespace WishList_RestService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("WishId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("WishList");

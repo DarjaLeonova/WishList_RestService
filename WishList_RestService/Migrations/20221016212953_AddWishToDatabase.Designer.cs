@@ -11,8 +11,8 @@ using WishList_RestService.Data;
 namespace WishList_RestService.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221015201623_AddWishListToDatabase")]
-    partial class AddWishListToDatabase
+    [Migration("20221016212953_AddWishToDatabase")]
+    partial class AddWishToDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -38,6 +38,9 @@ namespace WishList_RestService.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("WishId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
